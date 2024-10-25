@@ -1,21 +1,18 @@
 Stateful Testing
 ========================
 
-With Kea’s stateful testing, we can use ``Bundle`` to store some data
-when we want to search for some data manipulation error. In other words,
-Kea tries to generate not just data but entire tests. When we define a set of basic data manipulation actions
-that can be combined, and then Kea will attempt to discover sequences of those actions that lead to a failure.
+Stateful testing is a software testing technique used to validate systems that maintain states over time.
+In mobile apps, some functionalities can move from one state to another state based on certain inputs or actions.
+Thus, we need additional data structure to support this.
 
-|Here we reference `Hypothesis's Stateful Testing <https://hypothesis.readthedocs.io/en/latest/stateful.html>`_.
+|Here we reference Hypothesis's Stateful Testing <https://hypothesis.readthedocs.io/en/latest/stateful.html>_.
 
-In Kea, we can use stateful testing when we write some properties.
-We just need to call the class method of ``Kea`` to instantiate the ``Bundle``.
-Just like following codes:
+In Kea, we can use stateful testing when we write some properties that require stateful information.
+Just like following codes, when we want to manipulate files or folders on devices, such us create a file, delete a file or rename the file.
 
 .. code:: Python
 
     _files = Kea.set_bundle("files")
-    _notes = Kea.set_bundle("notes")
 
 The Bundle class contains the following functions:
 
@@ -72,7 +69,7 @@ So we can call it before using the ``delete`` and ``update`` function.
 
 Here is a complete example to show how to use Kea's stateful testing when we define property.
 This example will show how to use stateful testing in the app `Amaze <https://github.com/TeamAmaze/AmazeFileManager>`_, it is a file management app,
-allows users to manipulate files or folders on Android devices. These properties are defined for testing whether data manipulation of
+allows users to manipulate files or folders on devices. These properties are defined for testing whether data manipulation of
 the file system have some errors. Stateful testing is essential in this situation, we use stateful testing to store all the folders created by Kea,
 and can manipulate them along the whole testing process.
 
