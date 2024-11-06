@@ -1,4 +1,4 @@
-How to setup Android SDK Environment(Mac)
+MAC
 ==============.
 
 1. Install the Android Command Line Tools.
