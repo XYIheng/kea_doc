@@ -1,8 +1,7 @@
 How to setup Android SDK Environment
 ============
 
-Follow these steps to install Quickstrom locally. These are the currently
-supported installation methods:
+Follow these steps to install AndroidSDK for different Operating System.
 
 .. toctree::
 
