@@ -1,5 +1,5 @@
-Linux
-==============.
+Set up Android SDK Environment on Linux
+========================================================
 
 1. Install the Android Command Line Tools.
     Go to `Android Developer <https://developer.android.com/studio>`_ and Download the tools that match your operating system.
@@ -9,7 +9,7 @@ Linux
 
     |
 
-    |Here we use ``wget`` to download the tool, you can download it directly if you want.
+    | Here we use ``wget`` to download the tool, you can download it directly if you want.
 
     You can copy the download link copy from the `Android Developer <https://developer.android.com/studio>`_ website mentioned above.
     And then use following commands.
@@ -26,7 +26,7 @@ Linux
     Install Java. (If you have already installed and configured it before, you should
     check if your JDK match the Command Line Tools and then skip the following steps about Java)
 
-    |Here we use ``JDK-17`` to match the latest tool available now.
+    | Here we use ``JDK-17`` to match the latest tool available now.
 
     .. code-block:: bash
 
@@ -47,7 +47,7 @@ Linux
         export ANDROID_HOME=$HOME/Android
         export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/tools/bin:$ANDROID_HOME/cmdline-tools/latest:$ANDROID_HOME/platform-tools:$PATH"
 
-    |Ensure that the ``PATH`` configuration matches the path where you have stored the relevant tools.
+    | Ensure that the ``PATH`` configuration matches the path where you have stored the relevant tools.
 
     Finally,  reloads the ``.bashrc`` file, applying changes to the current terminal session immediately.
 
@@ -71,18 +71,3 @@ Linux
 
     Common commands for sdkmanager. You can learn from `this link <https://developer.android.com/tools/sdkmanager>`_.
 
-4. Common Issues.
-    a. CPU acceleration status: This user doesn't have permissions to use KVM (/dev/kvm)，ERROR: x86 emulation currently requires hardware acceleration!
-
-        .. image::  ../../images/issues1.png
-            :align: center
-
-        |
-
-        Follow the first solution in the `link <https://stackoverflow.com/questions/37300811/android-studio-dev-kvm-device-permission-denied>`_.
-        Then, Just log in again.
-
-        .. code-block:: bash
-
-            sudo adduser $USER kvm
-            sudo chown $USER -R /dev/kvm

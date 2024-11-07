@@ -1,5 +1,5 @@
 Common issues for WSL
-==============.
+============================
 
 1. CPU acceleration status: This user doesn't have permissions to use KVM (/dev/kvm)，ERROR: x86 emulation currently requires hardware acceleration!
 

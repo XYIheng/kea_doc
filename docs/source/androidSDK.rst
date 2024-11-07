@@ -1,5 +1,5 @@
-How to setup Android SDK Environment
-============
+How to set up Android SDK Environment
+====================================
 
 Follow these steps to install AndroidSDK for different Operating System.
 

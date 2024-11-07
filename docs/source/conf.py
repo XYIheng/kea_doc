@@ -16,8 +16,7 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.viewcode'
+    'sphinx.ext.intersphinx'
 ]
 
 intersphinx_mapping = {
@@ -36,5 +35,3 @@ html_theme = 'sphinx_rtd_theme'
 epub_show_urls = 'footnote'
 
 pygments_style = 'sphinx'
-
-master_doc = 'index'
