@@ -15,7 +15,7 @@ That's it!
 
 ``-a``: the file path of the apk
 
-``-t``: the timeout of this execution.
+``-t``: the timeout of this execution(seconds).
 
 You can see the test results ``bug_report.html`` in the "output" directory.
 

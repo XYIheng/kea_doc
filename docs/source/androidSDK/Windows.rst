@@ -13,7 +13,7 @@ Set up Android SDK Environment on Windows
 
     Move the contents of the ``cmdline-tools`` folder into the latest folder. The final structure should be:
 
-    .. code-block:: bash
+    .. code-block::
 
         D:\AndroidSDK\cmdline-tools\latest
 
@@ -29,7 +29,7 @@ Set up Android SDK Environment on Windows
     Then run the downloaded installer and follow the prompts to complete the installation.
     Make sure to note the installation path for future reference.
 
-    .. code-block:: bash
+    .. code-block::
 
         D:\Java\jdk-21
 
@@ -41,13 +41,13 @@ Set up Android SDK Environment on Windows
     - Click on ``Advanced system settings``.
     - In the ``System Properties`` window, select ``Environment Variables``.
 
-    In the ``System Variables`` section, click ``New`` to add the ``JAVA_HOME`` variable, with the value set to the JDK installation path(D:\Java\jdk-21).
-    And add the ``ANDROID_HOME`` variable, with the AndroidSDK installation path(D:\AndroidSDK).
+    |
 
-    Locate the ``Path`` variable, click ``Edit``, and add ``%JAVA_HOME%\bin``, ``%ANDROID_HOME%\tools``, ``%ANDROID_HOME%\emulator``, ``%ANDROID_HOME%\cmdline-tools\latest\bin``,
+    In the ``System Variables`` section, click ``New`` to add the ``JAVA_HOME`` variable, with the value set to the JDK installation path(``D:\Java\jdk-21``).
+    And add the ``ANDROID_HOME`` variable, with the AndroidSDK installation path(``D:\AndroidSDK``).
+
+    Locate the ``Path`` variable, click ``Edit``, then add ``%JAVA_HOME%\bin``, ``%ANDROID_HOME%\tools``, ``%ANDROID_HOME%\emulator``, ``%ANDROID_HOME%\cmdline-tools\latest\bin``,
     ``%ANDROID_HOME%\tools\bin``, ``%ANDROID_HOME%\cmdline-tools\latest`` and ``%ANDROID_HOME%\platform-tools``.
-
-    Open your ``.bashrc`` file.
 
 4. Verify Installation
 

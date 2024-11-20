@@ -25,9 +25,11 @@ Contents
 
    installation
    androidSDK
+   introduction
    setup
    example
    tutorial
+   multipleProperty
    stateful testing
    api
    bugs

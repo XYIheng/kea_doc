@@ -170,7 +170,7 @@ To test this property, we need to put the property in a class, which inherits fr
             # the tag should be removed in the content and the updated content should be the same as the expected content
             assert not d(textContains=select_tag_name).exists() and new_content == origin_content_exlude_tag
 
-Here, we write the property in the ``Test`` class, which inherits from the ``AndroidCheck`` class.
+Here, we write the property in the ``Test`` class, which inherits from the ``Kea`` class.
 
 We put this file omninotes_634.py in the ``example`` directory.
 You can test the property by running the following command:
@@ -181,8 +181,8 @@ You can test the property by running the following command:
 
 That's it! You have learned how to write a property and test it with Kea.
 
-When we test this property, we quickly find two new bugs that violates this property.
-Then, we write the corresponding bug reports and submit them to the app's developers.
+When you try to test this property, you may quickly find two new bugs that violates this property.
+Then, you can write the corresponding bug reports and submit them to the app's developers.
 Both of them are fixed by app developers.
 
 You can see the bug reports:

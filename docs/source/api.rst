@@ -92,15 +92,6 @@ For example, in OmniNotes, we can use ``@initialize`` to specify a function and 
 
 The, after testing started, this function will be executed first to pass the welcome page.
 
-Run multiple properties together
-..................................
-
-Suppose we have several properties in different files, we can run them together by specifying multiple files in the command line.
-
-.. code-block:: console
-
-   kea -f [property_file_name1] [property_file_name2] -a [apk_file_name]
-
 Optional arguments
 ....................
 
@@ -116,6 +107,6 @@ Kea provides the following options. please consult ``kea -h`` for a full list.
 
 ``-p --policy``: The policy name of the exploration. ("random" or "mutate")
 
-``-t --timeout``: The maximum testing time.
+``-t --timeout``: The maximum testing time(seconds).
 
 ``-n``: Every n events, then restart the app.
