@@ -105,7 +105,7 @@ Kea provides the following options. please consult ``kea -h`` for a full list.
 
 ``-o --output``: The output directory of the execution results.
 
-``-p --policy``: The policy name of the exploration. ("random" or "mutate")
+``-p --policy``: The policy name of the exploration. ("random" or "guided")
 
 ``-t --timeout``: The maximum testing time(seconds).
 
