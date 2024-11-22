@@ -3,7 +3,7 @@ Run multiple properties together
 
 The random and main path guided exploration strategies by default validate one property of an app at one run.
 When multiple properties of an app are available,these two strategies can validate any subset of these properties together.
-One benefit is that we can improve the efficiency of validating properties.
+One benefit is that Kea can improve the efficiency of validating properties.
 Another benefit is that the interaction scenarios of multiple properties provide a partial model of the app.
 This partial model enables us more likely to reach deeper app states during testing.
 
@@ -14,7 +14,7 @@ and perform guided exploration along its main path. When every state on this mai
 this strategy would randomly select another property as a new target.
 In addition, this strategy would randomly select a property for check when multiple properties’ preconditions are satisfied.
 
-Suppose we have several properties in different files, we can run them together by specifying multiple files in the command line.
+Suppose you have several properties in different files, you can run them together by specifying multiple files in the command line.
 
 .. code-block:: console
 

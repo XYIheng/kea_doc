@@ -6,7 +6,7 @@ UI events
 
 .. note::
 
-   Note that currently, we use `uiautomator2 <https://github.com/openatx/uiautomator2>`_ to interact with the app. 
+   Note that currently, kea uses `uiautomator2 <https://github.com/openatx/uiautomator2>`_ to interact with the app.
    You can find more information in `uiautomator2 <https://github.com/openatx/uiautomator2>`_.
    You can also use other tools to interact with the app, which can be easily implemented by modifying the `dsl.py`.
 
@@ -55,7 +55,7 @@ Here are some common operations:
       d.press("home")
       d.press("back")
 
-We use selector to identify the UI object in the current window.  
+You can use selector to identify the UI object in the current window.
 
 Selector 
 .........
@@ -72,41 +72,3 @@ Selector supports below parameters.
 *  `packageName`, `packageNameMatches`
 *  `resourceId`, `resourceIdMatches`
 *  `index`, `instance`  
-
-Initialize
-...........
-
-We use ``@initialize`` to pass the welcome page or the login page of the app.
-For example, in OmniNotes, we can use ``@initialize`` to specify a function and wrtite the corresponding UI events to pass the welcome page.
-
-.. code-block:: Python
-
-   @initialize()
-   def pass_welcome_pages(self):
-      # click next button 5 times
-      for _ in range(5):
-         d(resourceId="it.feio.android.omninotes.alpha:id/next").click()
-      # click done button
-      d(resourceId="it.feio.android.omninotes.alpha:id/done").click()
-
-
-The, after testing started, this function will be executed first to pass the welcome page.
-
-Optional arguments
-....................
-
-Kea provides the following options. please consult ``kea -h`` for a full list.
-
-``-f``: The test files that contain the properties.
-
-``-a --apk``: The apk file of the app under test.
-
-``-d --device_serial``: The serial number of the device used in the test. (use 'adb devices' to find)
-
-``-o --output``: The output directory of the execution results.
-
-``-p --policy``: The policy name of the exploration. ("random" or "guided")
-
-``-t --timeout``: The maximum testing time(seconds).
-
-``-n``: Every n events, then restart the app.

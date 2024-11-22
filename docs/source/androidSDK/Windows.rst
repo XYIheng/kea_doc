@@ -24,7 +24,7 @@ Set up Android SDK Environment on Windows
 
     Visit the official website of `Oracle JDK <https://www.oracle.com/java/technologies/downloads/#jdk21-windows>`_, choice the version suitable for Windows and download it.
 
-    | Here we use ``JDK-21``
+    | Here you can use ``JDK-21``
 
     Then run the downloaded installer and follow the prompts to complete the installation.
     Make sure to note the installation path for future reference.

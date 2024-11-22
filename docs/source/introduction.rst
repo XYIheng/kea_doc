@@ -14,5 +14,6 @@ Specifically, to support the application of property-based testing, Kea provides
 
    introduction/procedure
    introduction/PDL
+   introduction/options
    introduction/Advantage
    introduction/BugReport

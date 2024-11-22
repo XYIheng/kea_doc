@@ -1,7 +1,7 @@
 How to write properties
 ========================
 
-In this tutorial, we will learn how to write properties and test them with Kea.
+In this tutorial, you will learn how to write properties and test them with Kea.
 
 In mobile apps, a property defines the expected behavior of the app. 
 Then, if the app violates the property, it means a bug is found.
@@ -10,13 +10,15 @@ At high level, a property consists of three key components **<P, I, Q>**, where 
 (2) *I* is an interaction scenario which defines how to perform the app functionality, 
 and (3) *Q* is a postcondition which defines the expected behavior.
 
+Kea uses ``@initialize`` to pass the welcome page or the login page of the app.
+
 In Kea, a property is defined by applying the ``@rule`` decorator on a function. 
 
 To define the precondition of the property, you can use the ``@precondition`` decorator on the  ``rule``-decorated function.
 
 The postcondition is defined by the ``assert`` statement in the ``rule``-decorated function.
 
-For mobile apps, we can get properties from multiple sources, such as the app's specification, the app's documentation, the app's test cases, the app's bug reports, etc.
+For mobile apps, you may can get properties from multiple sources, such as the app's specification, the app's documentation, the app's test cases, the app's bug reports, etc.
 
 Let's start with a simple example on how to get a property, write the property in Kea, and test the property by Kea.
 
@@ -29,11 +31,11 @@ This example will show how to get a property from the app `OmniNotes <https://gi
 
 Here is a bug report from the app `#634 <https://github.com/federicoiosue/Omni-Notes/issues/634>`_, where a user complained that when he removed a tag, it removed other tags that sharing the same prefix.
 
-Then, from this bug report, we can get a property:
+Then, from this bug report, you can get a property:
 
 After removing the tag, the tag should be successfully removed and the note content should remain unchanged.
 
-From the bug report, we can get a property as follows:
+From the bug report, you can get a property as follows:
 
 - **P (Precondition)**: The tag exists.
 - **I (Interaction scenario)**: Remove the note tag from the tag list.
@@ -75,13 +77,13 @@ The ``@rule`` decorator defines the property.
 Here, the interaction scenario is to remove a tag.
 
 The postcondition is defined by the ``assert`` statement.
-Here, we check if the tag is removed and content remains unchanged.
+Here, Kea checks if the tag is removed and content remains unchanged.
 
 That's it! This is a property that should be held by `OmniNotes <https://github.com/federicoiosue/Omni-Notes/>`_.
 
-Also, we can add a function to set up the app's initial state before testing the property.
+Also, you can add a function to set up the app's initial state before testing the property.
 
-To do this, we can use the following code:
+To do this, you can use ``@initialize`` to specify a function and wrtite the corresponding UI events to pass the welcome page:
 
 .. code:: Python
 
@@ -94,7 +96,7 @@ To do this, we can use the following code:
             d(text="OK").click()
 
 Here, the code can automatically pass the welcome page in `OmniNotes <https://github.com/federicoiosue/Omni-Notes/>`_.
-Note that we use the ``@initialize`` decorator to define the setup function.
+Note that you can use the ``@initialize`` decorator to define the setup function.
 Then, Kea will execute the setup function before testing the property.
 
 .. note::
@@ -105,11 +107,11 @@ Then, Kea will execute the setup function before testing the property.
 
 Moreover, if you want to use the main path guided exploration strategy, you should set a main path function.
 
-To do this, we can use the following code:
+To do this, you can use the following code:
 
 .. code:: Python
 
-     @main_path()
+    @main_path()
     def test_main(self):
         d(resourceId="it.feio.android.omninotes:id/fab_expand_menu_button").long_click()
         d(resourceId="it.feio.android.omninotes:id/detail_content").click()
@@ -129,9 +131,9 @@ And then removes the tag “Tag1” of this note.
     The function cannot contain other Python statements such as for loops.
     But we believe this approach is sufficient to implement the functionality of the main path.
 
-Here, we have already learned how to write a property in Kea.
+Here, you have already learned how to write a property in Kea.
 
-To test this property, we need to put the property in a class, which inherits from the ``Kea`` class.
+To test this property, you need to put the property in a class, which inherits from the ``Kea`` class.
 
 .. code:: Python
     
@@ -170,7 +172,7 @@ To test this property, we need to put the property in a class, which inherits fr
             # the tag should be removed in the content and the updated content should be the same as the expected content
             assert not d(textContains=select_tag_name).exists() and new_content == origin_content_exlude_tag
 
-Here, we write the property in the ``Test`` class, which inherits from the ``Kea`` class.
+Here, you need to write the property in the ``Test`` class, which inherits from the ``Kea`` class.
 
 We put this file omninotes_634.py in the ``example`` directory.
 You can test the property by running the following command:

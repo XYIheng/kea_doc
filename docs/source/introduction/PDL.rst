@@ -6,7 +6,7 @@ Property Description Language
 
 |
 
-To facilitate specifying general properties in the form of ``Φ = ⟨P, I, Q⟩``, we design a property description language (PDL).
+To facilitate specifying general properties in the form of ``Φ = ⟨P, I, Q⟩``, Kea design a property description language (PDL).
 It is a domain specific language based on Python. The figure above shows the core syntax of our PDL,
 which is a superset of the syntax of Python. In our PDL, the interaction scenario **I** and the postcondition **Q** are specified in a Python function annotated with ``@property``.
 The precondition **P** is specified in the function’s annotation ``@precondtion``.
@@ -26,5 +26,5 @@ e.g., conditional statements, loops, and function calls, to facilitate specifyin
 Moreover, as the rule of ``Stmts`` and  ``Stmt`` in the figure shows, our PDL allows users to specify multiple assert statements in the function body.
 Assume a GUI state **S0** satisfies the precondition of a property ``Φ = ⟨P, I, Q⟩`` and the interaction scenario **I** yields a sequence of GUI states **[s0, s1, s2, s3]**.
 Our PDL allows users to place the assert statements following any GUI state (say **S1**) to define the postcondition **Q**. In other words, **Q** is not limited to be placed after the ending state **S3**.
-We can also use conditional statements, loops, and function calls to specify more complicated postconditions. The users can also specify multiple properties in the function body.
+You can also use conditional statements, loops, and function calls to specify more complicated postconditions. The users can also specify multiple properties in the function body.
 

@@ -9,7 +9,7 @@ Set up Android SDK Environment on Linux
 
     |
 
-    | Here we use ``wget`` to download the tool, you can download it directly if you want.
+    | Here you can use ``wget`` to download the tool, you can download it directly if you want.
 
     You can copy the download link copy from the `Android Developer <https://developer.android.com/studio>`_ website mentioned above.
     And then use following commands.
@@ -26,7 +26,7 @@ Set up Android SDK Environment on Linux
     Install Java. (If you have already installed and configured it before, you should
     check if your JDK match the Command Line Tools and then skip the following steps about Java)
 
-    | Here we use ``JDK-17`` to match the latest tool available now.
+    | Here you can use ``JDK-17`` to match the latest tool available now.
 
     .. code-block:: bash
 
