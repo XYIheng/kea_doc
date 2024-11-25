@@ -1,7 +1,7 @@
 How to read bug reports
 =======================
 
-.. image:: ../images/BugReport.png
+.. image:: ../../images/BugReport.png
             :align: center
 
 |
