@@ -1,4 +1,4 @@
-Bug Report
+How to read bug reports
 =======================
 
 .. image:: ../../images/BugReport.png

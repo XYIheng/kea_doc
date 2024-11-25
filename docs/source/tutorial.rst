@@ -22,7 +22,7 @@ For mobile apps, you may can get properties from multiple sources, such as the a
 
 Let's start with a simple example on how to get a property, write the property in Kea, and test the property by Kea.
 
-Example 1
+Specify property from historical bugs
 ---------
 
 This example will show how to get a property from the app `OmniNotes <https://github.com/federicoiosue/Omni-Notes/>`_

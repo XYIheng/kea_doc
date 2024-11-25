@@ -1,4 +1,4 @@
-Bug List
+Trophies
 =========
 
 **Bug list found by Kea**

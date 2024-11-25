@@ -5,7 +5,7 @@ Stateful testing is a software testing technique used to validate systems that m
 In mobile apps, some functionalities can move from one state to another state based on certain inputs or actions.
 Thus, it need additional data structure to support this.
 
-| Here Kea reference `Hypothesis's Stateful Testing <https://hypothesis.readthedocs.io/en/latest/stateful.html>`_.
+| Here Kea refers to `Hypothesis's Stateful Testing <https://hypothesis.readthedocs.io/en/latest/stateful.html>`_.
 
 In Kea, you can use stateful testing when you write some properties that require stateful information.
 Just like following codes, when you want to manipulate files or folders on devices, such us create a file, delete a file or rename the file.

@@ -31,5 +31,7 @@ Contents
    tutorial
    multipleProperty
    stateful testing
+   options
    api
-   bugs
+   trophies
+   PDL

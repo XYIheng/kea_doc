@@ -5,7 +5,7 @@ Advantages of Kea
             :align: center
 
 .. note::
-    According to the image below, you may know that the input space coverage and functional relevance of static analysis are both low.
+    According to the image above, you may know that the input space coverage and functional relevance of static analysis are both low.
     Manual testing focuses on functional relevance but still has low input space coverage.
     while automated testing, on the other hand, achieves high input space coverage but has lower functional relevance.
     Kea aims to enhance both functional relevance and input space coverage simultaneously based on Property-Based Testing (PBT).

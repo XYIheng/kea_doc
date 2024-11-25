@@ -1,4 +1,4 @@
-Optional arguments
+Kea's options
 ====================
 
 Kea provides the following options. please consult ``kea -h`` for a full list.
@@ -16,3 +16,15 @@ Kea provides the following options. please consult ``kea -h`` for a full list.
 ``-t --timeout``: The maximum testing time(seconds).
 
 ``-n``: Every n events, then restart the app.
+
+``-debug``: Run in debug mode (dump debug messages).
+
+``-keep_app``: Keep the app on the device after testing.
+
+``-grant_perm``: Grant all permissions while installing. Useful for Android 6.0+.
+
+``-is_emulator``: Declare the target device to be an emulator, which would be treated specially.
+
+``-is_harmonyos``: use harmonyos devices
+
+``-load_config``: load config from config.yml. The setting in config.yml will cover the commandline args.

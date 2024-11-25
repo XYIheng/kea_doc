@@ -13,7 +13,5 @@ Specifically, to support the application of property-based testing, Kea provides
 .. toctree::
 
    introduction/procedure
-   introduction/PDL
-   introduction/options
    introduction/Advantage
    introduction/BugReport
