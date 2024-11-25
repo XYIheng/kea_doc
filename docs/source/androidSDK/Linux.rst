@@ -18,7 +18,7 @@ Set up Android SDK Environment on Linux
 
         wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip?hl=zh-cn
         mkdir -p Android/cmdline-tools
-        unzip commandlinetools-linux-11076708_latest.zip -d Android/cmdline-tools
+        unzip commandlinetools-linux-11076708_latest.zip?hl=zh-cn -d Android/cmdline-tools
         mv Android/cmdline-tools/cmdline-tools Android/cmdline-tools/latest
 
 2. Configure the related environment.

@@ -1,7 +1,7 @@
 Property Description Language
 ==============================
 
-.. image:: ../../images/PDL.png
+.. image:: ../images/PDL.png
             :align: center
 
 |
