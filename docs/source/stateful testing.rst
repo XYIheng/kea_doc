@@ -1,7 +1,11 @@
 Stateful Testing
 ========================
 
-Stateful testing is a software testing technique used to validate systems that maintain states over time.
+Stateful Testing is a software testing method that primarily focuses on the behavior of a system in different states and the transitions between those states.
+Its principle lies in tracking the current state of the system to verify how input operations affect the system's output and state changes.
+This method is widely applied in scenarios that require state management, such as user interfaces and database transactions.
+By designing state-based test cases, it ensures that the system functions correctly across various states, enhancing the reliability of the software and the user experience.
+
 In mobile apps, some functionalities can move from one state to another state based on certain inputs or actions.
 Thus, it need additional data structure to support this.
 
@@ -73,21 +77,14 @@ allows users to manipulate files or folders on devices. These properties are def
 the file system have some errors. Stateful testing is essential in this situation, you can use stateful testing to store all the folders created by Kea,
 and can manipulate them along the whole testing process.
 
+Firstly, you can define a ``create_file_should_exist`` property. Just return to the home directory, create a file and check whether the new file is exist.
+
+.. image:: ../../images/CreateFile.png
+            :align: center
+
+|
+
 .. code-block:: Python
-
-    from kea.main import *
-
-    class Test2(Kea):
-        _files = Kea.set_bundle("files")
-
-        @initialize()
-        def set_up(self):
-            if d(text="Allow").exists():
-                d(text="Allow").click()
-            if d(text="GRANT").exists():
-                d(text="GRANT").click()
-            if d(text="ALLOW").exists():
-                d(text="ALLOW").click()
 
         @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists())
         @rule()
@@ -105,25 +102,14 @@ and can manipulate them along the whole testing process.
             d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=file_name)
             assert d(text=file_name).exists()
 
-        @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and self._files.get_all_data())
-        @rule()
-        def del_file_should_disappear(self):
-            d(resourceId="com.amaze.filemanager:id/pathbar").click()
-            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
-            d(description="Navigate up").click()
-            d(resourceId="com.amaze.filemanager:id/design_menu_item_text", textContains="Internal Storage").click()
-            file_name = self._files.get_random_data()
-            d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text = file_name)
-            selected_file = d(resourceId="com.amaze.filemanager:id/firstline", text = file_name)
-            selected_file_name = selected_file.get_text()
-            selected_file.right(resourceId="com.amaze.filemanager:id/properties").click()
-            d(text="Delete").click()
-            d(resourceId="com.amaze.filemanager:id/md_buttonDefaultPositive").click()
-            self._files.delete(selected_file_name)
-            d(resourceId="com.amaze.filemanager:id/pathbar").click()
-            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
-            d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=file_name)
-            assert not d(text=selected_file_name).exists()
+Secondly, you can define a ``change_filename_should_follow`` property. Just return to the home directory, choose a file change its name and check whether the file is changed.
+
+.. image:: ../../images/RenameFile.png
+            :align: center
+
+|
+
+.. code-block:: Python
 
         @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and self._files.get_all_data())
         @rule()
@@ -149,6 +135,35 @@ and can manipulate them along the whole testing process.
             d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
             d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=file_name)
             assert not d(text=file_name).exists()
+
+Thirdly, you can define a ``del_file_should_disappear`` property. Just return to the home directory, delete a file and check whether the file is exist.
+
+.. image:: ../../images/DelFile.png
+            :align: center
+
+|
+
+.. code-block:: Python
+
+        @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and self._files.get_all_data())
+        @rule()
+        def del_file_should_disappear(self):
+            d(resourceId="com.amaze.filemanager:id/pathbar").click()
+            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
+            d(description="Navigate up").click()
+            d(resourceId="com.amaze.filemanager:id/design_menu_item_text", textContains="Internal Storage").click()
+            file_name = self._files.get_random_data()
+            d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text = file_name)
+            selected_file = d(resourceId="com.amaze.filemanager:id/firstline", text = file_name)
+            selected_file_name = selected_file.get_text()
+            selected_file.right(resourceId="com.amaze.filemanager:id/properties").click()
+            d(text="Delete").click()
+            d(resourceId="com.amaze.filemanager:id/md_buttonDefaultPositive").click()
+            self._files.delete(selected_file_name)
+            d(resourceId="com.amaze.filemanager:id/pathbar").click()
+            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
+            d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=file_name)
+            assert not d(text=selected_file_name).exists()
 
 .. note::
 
