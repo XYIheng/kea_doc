@@ -23,6 +23,7 @@ Contents
 
 .. toctree::
 
+   Quick Start
    installation
    androidSDK
    introduction

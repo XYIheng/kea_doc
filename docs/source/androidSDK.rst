@@ -1,3 +1,5 @@
+.. _androidsdk:
+
 How to set up Android SDK Environment
 ========================================
 

@@ -27,4 +27,3 @@ Moreover, as the rule of ``Stmts`` and  ``Stmt`` in the figure shows, our PDL al
 Assume a GUI state **S0** satisfies the precondition of a property ``Φ = ⟨P, I, Q⟩`` and the interaction scenario **I** yields a sequence of GUI states **[s0, s1, s2, s3]**.
 Our PDL allows users to place the assert statements following any GUI state (say **S1**) to define the postcondition **Q**. In other words, **Q** is not limited to be placed after the ending state **S3**.
 You can also use conditional statements, loops, and function calls to specify more complicated postconditions. The users can also specify multiple properties in the function body.
-
