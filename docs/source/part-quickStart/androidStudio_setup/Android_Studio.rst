@@ -95,7 +95,7 @@ Then, add the following path to PATH var. See `How to Add to Windows PATH Enviro
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Run an Android emulator through Android Studio. Follow the following tutorial to create and run an emulator.
 
-`Andorid Studio docs - Create and Manager Virtual devices <https://developer.android.com/studio/run/managing-avds>`_
+`Andorid Studio docs - Create and Manage Virtual Devices <https://developer.android.com/studio/run/managing-avds>`_
 
 .. important:: 
     Run ``adb devices`` in your terminal. You should see your emulator listed like emulator-5554.
