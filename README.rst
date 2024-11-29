@@ -1,6 +1,6 @@
 Kea doc
 =======================================
-https://kea-doc.readthedocs.io/en/latest/tutorial.html
+https://kea-doc.readthedocs.io/en/latest/
 
 Template for the Read the Docs tutorial
 =======================================
@@ -10,4 +10,4 @@ with some basic Sphinx docs.
 
 Read the tutorial here:
 
-https://kea-doc.readthedocs.io/en/latest/
+https://docs.readthedocs.io/en/stable/tutorial/
