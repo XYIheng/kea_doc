@@ -24,22 +24,27 @@ Contents
 .. toctree::
    :caption: PART1: QUICK START
 
-   part1/androidSDK
-   part1/first_property
+   part-quickStart/androidSDK
+   part-quickStart/first_property
 
 .. toctree::
    :caption: PART2: USER MANUEL
 
-   part2/introduction
-   part2/example
-   part2/tutorial
-   part2/multipleProperty
-   part2/stateful testing
-   part2/options
-   part2/api
+   part-keaUserManuel/introduction
+   part-keaUserManuel/example
+   part-keaUserManuel/tutorial
+   part-keaUserManuel/multipleProperty
+   part-keaUserManuel/stateful testing
+   part-keaUserManuel/options
+   part-keaUserManuel/api
 
 .. toctree::
-   :caption: PART3: APPENDIX
+   :caption: PART3: KEA FOR HarmonyOS
 
-   part3/trophies
-   part3/PDL
+   part-keaForHarmonyOS/harmonyos_setup
+
+.. toctree::
+   :caption: PART4: APPENDIX
+
+   part-Appendix/trophies
+   part-Appendix/PDL

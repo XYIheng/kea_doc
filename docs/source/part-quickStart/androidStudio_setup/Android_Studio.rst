@@ -14,7 +14,9 @@ Set up Android Environment with Android studio
     The following tutorial will help you setup the whole suite of Android sdk tools. But remember, add the ``adb`` cmd to path is enough for kea.
 
 
-Setup cmdline tools (adb)
+.. _path_setup:
+
+1. Set up cmdline tools (adb)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MacOS and Linux
@@ -27,6 +29,8 @@ See `Android studio doc: Environment variables <https://developer.android.com/to
 If you're using zsh, bash. Setup the ``ANDROID_HOME`` environment with ``EXPORT`` cmd. The ``ANDROID_HOME`` 
 environment should refer to your sdk installation path. The default path is ``/usr/Library/Android/sdk/``. You
 can check your installation path in Android Studio via :guilabel:`Android Studio` -> :guilabel:`Settings` -> :guilabel:`Language & Frameworks` -> :guilabel:`Android SDK`
+
+In this window, checkout :guilabel:`SDK Tools`, install **Android SDK Platform Tools**.
 
 .. figure:: ../../../images/android_home_path.jpg
     :align: center
@@ -55,6 +59,8 @@ With Andorid Studio installed on your PC. What you need to do is export the PATH
 If you're using zsh, bash. Setup the ``ANDROID_HOME`` environment with ``EXPORT`` cmd. The ``ANDROID_HOME`` 
 environment should refer to your sdk installation path. The default path is ``C:\Users\usr_name\AppData\Local\Android\Sdk``. You
 can check your installation path in Android Studio via :guilabel:`File` -> :guilabel:`Settings` -> :guilabel:`Language & Frameworks` -> :guilabel:`Android SDK`
+
+In this window, checkout :guilabel:`SDK Tools`, install **Android SDK Platform Tools**.
 
 .. figure:: ../../../images/android_home_path_win.png
     :align: center
@@ -85,7 +91,7 @@ Then, add the following path to PATH var. See `How to Add to Windows PATH Enviro
 .. important::
     Enter ``adb`` in your terminal to check if the setup succeed.
 
-Run the emulator
+2. Run the emulator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Run an Android emulator through Android Studio. Follow the following tutorial to create and run an emulator.
 
