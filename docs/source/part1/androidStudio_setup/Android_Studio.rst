@@ -1,6 +1,6 @@
 .. _android_studio_env:
 
-Setup Android Environment with Android studio
+Set up Android Environment with Android studio
 ========================================================
 
 

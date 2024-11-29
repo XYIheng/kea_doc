@@ -1,4 +1,4 @@
-How to set up Android Environment
+Set up Android Environment
 ========================================
 
 Follow these steps to install AndroidSDK on different Operating System.
@@ -7,9 +7,10 @@ Follow these steps to install AndroidSDK on different Operating System.
 
    What you need to do (also the target of this chapter) before using kea:
 
-   **1. Make the ``adb`` cmd available.**
+   **1. Make the `adb` cmd available**
    
-   Kea relies on ``adb`` cmd to interact with android devices. The key is to make the ADB(Android Debug Bridge) cmd available.
+   Kea relies on ``adb`` cmd to interact with android devices. The key is to make the ADB(Android Debug Bridge) 
+   cmd available by adding it into PATH var.
 
    **2. Connect a device or start an emulator on your PC**
 
