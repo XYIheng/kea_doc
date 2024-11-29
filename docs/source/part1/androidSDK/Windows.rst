@@ -4,7 +4,7 @@ Set up Android SDK Environment on Windows
 1. Install the Android Command Line Tools.
     Go to `Android Developer <https://developer.android.com/studio>`_ and Download the tools that match your operating system.
 
-    .. image::  ../../images/android-command-line-tool.png
+    .. image::  ../../../images/android-command-line-tool.png
         :align: center
 
     |

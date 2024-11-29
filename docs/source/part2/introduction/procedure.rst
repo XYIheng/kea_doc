@@ -1,7 +1,7 @@
 How It Works
 ========================
 
-.. image:: ../../images/CoreProcess.gif
+.. image:: ../../../images/CoreProcess.gif
             :align: center
 
 |
@@ -24,7 +24,7 @@ Proceed to Step 5.
 4. Kea use the main path guiding strategy(the details are showed in the gif below) to generate an event sequence, perform property detection,
 and record the corresponding test results and user interface screenshots until the maximum test execution time is reached. Proceed to Step 5.
 
-.. image:: ../../images/MainPath.gif
+.. image:: ../../../images/MainPath.gif
             :align: center
 
 5. Based on the test results and user interface screenshots,

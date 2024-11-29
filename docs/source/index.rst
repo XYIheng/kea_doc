@@ -22,16 +22,25 @@ Contents
 --------
 
 .. toctree::
+   :caption: PART1: QUICK START
 
-   installation
-   androidSDK
-   introduction
-   setup
-   example
-   tutorial
-   multipleProperty
-   stateful testing
-   options
-   api
-   trophies
-   PDL
+   part1/installation
+   part1/androidSDK
+
+.. toctree::
+   :caption: PART2: KEA USAGE MANUEL
+
+   part2/introduction
+   part2/setup
+   part2/example
+   part2/tutorial
+   part2/multipleProperty
+   part2/stateful testing
+   part2/options
+   part2/api
+
+.. toctree::
+   :caption: PART3: APPENDIX
+
+   part3/trophies
+   part3/PDL

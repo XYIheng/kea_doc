@@ -79,7 +79,7 @@ and can manipulate them along the whole testing process.
 
 Firstly, you can define a ``create_file_should_exist`` property. Just return to the home directory, create a file and check whether the new file is exist.
 
-.. image:: ../images/CreateFile.png
+.. image:: ../../images/CreateFile.png
             :align: center
 
 |
@@ -104,7 +104,7 @@ Firstly, you can define a ``create_file_should_exist`` property. Just return to 
 
 Secondly, you can define a ``change_filename_should_follow`` property. Just return to the home directory, choose a file change its name and check whether the file is changed.
 
-.. image:: ../images/RenameFile.png
+.. image:: ../../images/RenameFile.png
             :align: center
 
 |
@@ -138,7 +138,7 @@ Secondly, you can define a ``change_filename_should_follow`` property. Just retu
 
 Thirdly, you can define a ``del_file_should_disappear`` property. Just return to the home directory, delete a file and check whether the file is exist.
 
-.. image:: ../images/DelFile.png
+.. image:: ../../images/DelFile.png
             :align: center
 
 |

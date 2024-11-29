@@ -290,7 +290,7 @@ That's it! You have learned how to write a property and test it with Kea.
     But if you choose the first method you should make sure there is at most one ``@initializer()`` and at most one ``@mainPath()`` in a ``.py`` file, but
     you can have multiple ``@rule()`` and ``@precondition()``. The structure of TestCase is in the image below.
 
-.. image:: ../images/TestCase.png
+.. image:: ../../images/TestCase.png
             :align: center
 
 |

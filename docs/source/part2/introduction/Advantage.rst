@@ -1,7 +1,7 @@
 Advantages of Kea
 ====================================
 
-.. image:: ../../images/Advantage.png
+.. image:: ../../../images/Advantage.png
             :align: center
 
 .. note::
