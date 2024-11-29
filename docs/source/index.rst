@@ -28,10 +28,9 @@ Contents
    part1/first_property
 
 .. toctree::
-   :caption: PART2: KEA USAGE MANUEL
+   :caption: PART2: USER MANUEL
 
    part2/introduction
-   part2/setup
    part2/example
    part2/tutorial
    part2/multipleProperty

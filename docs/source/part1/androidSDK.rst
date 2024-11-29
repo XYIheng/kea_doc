@@ -29,13 +29,17 @@ Follow these steps to install AndroidSDK on different Operating System.
 :guilabel:`Option B` Setup your environment with cmds
 -------------------------------------------------------------------
 
+**Step 1: Install and set up android sdk on your PC**
+
 :doc:`androidSDK/Linux`
 
 :doc:`androidSDK/Windows`
 
 :doc:`androidSDK/Mac`
 
-:doc:`androidSDK/Common issues for WSL`
+**Setp 2: Create and run an emulator**
+
+:doc:`androidSDK/emulator`
 
 .. toctree::
    :hidden:
@@ -43,4 +47,4 @@ Follow these steps to install AndroidSDK on different Operating System.
    androidSDK/Linux
    androidSDK/Windows
    androidSDK/Mac
-   androidSDK/Common issues for WSL
+   androidSDK/emulator
