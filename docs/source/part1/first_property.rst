@@ -37,14 +37,14 @@ we will use `weditor <https://github.com/alibaba/web-editor>`_ to inspect androi
     pip install weditor==0.7.3
     python -m weditor
 
-The above command will isntall weditor on your PC and start weditor. It will offer a host server (default: https://localhost:17310). You can access it in your web broswer.
+The above command will isntall weditor on your PC and start weditor. It offers a host server (default: https://localhost:17310). You can access it in your web broswer.
 
 .. figure:: ../../images/weditor_home.png
     :align: center
 
     The home page of weditor.
 
-Then, cd into the kea workspach and install the app omninotes.
+Then, cd into the kea workspace and install the app omninotes.
 
 .. code-block:: bash
 
@@ -61,22 +61,22 @@ Dump the hierachy in weditor to get android elements.
 .. figure:: ../../images/weditor-usage2.png
     :align: center
 
-    Dump layout from weditor
+    Dump hierachy from weditor
 
 Once connected to the weditor. You can click :guilabel:`Dump Hierachy` to refresh the elements (aka. dump hierachy) every time your screen changes.
-Or you can enable the automatic dump layout to avoid manuelly refresh the elements.
+Or you can enable the automatic dump hierachy to avoid manuelly refresh the elements.
 
 You can click an element and inspect its attributes.
 
 **3. Write your first property**
 
-We have a simple function to check in this app: The search input box should not be cleared after rotation. 
+We have a simple function to check in this app: **The search input box should not be cleared after rotation.** 
 
 Now, let's write the precondition. This should be a unique feature in the start of the function. We want to check the search input box, so let's 
 move to the search function first. By clicking the :guilabel:`search` button, you can enter the search edit page. Obviously, the unique feature of this
 page should be the search input box itself.
 
-**Dump layout in weditor. Click the search box to inspect its attributes.**
+**Dump hierachy in weditor. Click the search box to inspect its attributes.**
 
 .. figure:: ../../images/weditor-prop1.png
     :align: center
@@ -84,14 +84,20 @@ page should be the search input box itself.
     Inspect a widget in weditor
 
 We need the widget-specific attr to target a widget. The most commonly used unique attr is **resourceId**. 
-if you don't have a **resourceId**, **text** and **className** 
+if you don't have a **resourceId**, **text** or **className** 
 also works, but most of time they are not unique and will lead to mistake. 
 
 So, in order to avoid kea running into wrong states, you can target a widget with multiple attrs in Selector and target a page with multiple
 widgets.
 
 **After inspection, we know the resourceId of search input box. We can target it with the following command.**
+
 ``d(resourceId="it.feio.android.omninotes.alpha:id/search_src_text")``
+
+**To check whether this widget exist, we call the method ``exists``.**
+
+``d(resourceId="it.feio.android.omninotes.alpha:id/search_src_text").exists()``
+
 
 .. hint:: 
     Double click the widget in weditor. This will automatically generate the **click** action script for 
@@ -103,14 +109,15 @@ We need to rotate the device. From neutural to landscape and back to neutural. T
 ``d.rotate('l')``
 ``d.rotate('n')``
 
-**Write the post conditon. The inputbox should still exist after the rotation. We use an assertion to confirm its existance**
-assert d(resourceId="it.feio.android.omninotes.alpha:id/search_src_text").exists()
+**Write the post conditon. The inputbox should still exist after the rotation. We use an assertion to confirm its existance.**
+
+``assert d(resourceId="it.feio.android.omninotes.alpha:id/search_src_text").exists()``
 
 That's it! You've already wrote your first property!
 
-**4. Encapsule your property with Kea api**
+**4. Encapsule your property with Kea APIs**
 
-Create a python file **my_prop.py** or any name you like.
+Create a python file **my_prop.py** under kea's root directory.
 
 .. code-block:: python
 
