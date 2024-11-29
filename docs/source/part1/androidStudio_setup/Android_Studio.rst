@@ -82,6 +82,8 @@ Then, add the following path to PATH var. See `How to Add to Windows PATH Enviro
 
     Add required tools to path var
 
+.. important::
+    Enter ``adb`` in your terminal to check if the setup succeed.
 
 Run the emulator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
