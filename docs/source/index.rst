@@ -24,8 +24,8 @@ Contents
 .. toctree::
    :caption: PART1: QUICK START
 
-   part1/installation
    part1/androidSDK
+   part1/first_property
 
 .. toctree::
    :caption: PART2: KEA USAGE MANUEL

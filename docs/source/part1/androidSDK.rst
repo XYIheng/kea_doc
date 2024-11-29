@@ -5,6 +5,7 @@ Follow these steps to install AndroidSDK on different Operating System.
 
 .. toctree::
 
+   androidSDK/Android_Studio
    androidSDK/Linux
    androidSDK/Windows
    androidSDK/Mac
