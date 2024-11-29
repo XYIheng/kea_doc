@@ -129,8 +129,10 @@ Create a python file **my_prop.py** or any name you like.
 Start kea and check your property
 --------------------------------------
 
-Start kea by the following command. Then check the bug report in file ``output/``
+Start kea by the following command.
 
 .. code-block:: bash
 
-    kea -f prop.py -a example/omninotes.apk 
+    kea -f prop.py -a example/omninotes.apk -o output
+
+Check the bug report in file ``output/bug_report.html``
