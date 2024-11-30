@@ -1,3 +1,5 @@
+.. _bug_report_tutorial:
+
 How to read bug reports
 =======================
 

@@ -94,6 +94,11 @@ widgets.
 
 ``d(resourceId="it.feio.android.omninotes.alpha:id/search_src_text")``
 
+.. note:: 
+
+    You may be confused by the ``d(**Selector)`` script. This is kea's PDL(Property description Languague) 
+    for interacting with AUT(App under test). You can read :ref:`pdl_api` for details.
+
 **To check whether this widget exist, we call the method ``exists``.**
 
 ``d(resourceId="it.feio.android.omninotes.alpha:id/search_src_text").exists()``
@@ -142,4 +147,5 @@ Start kea by the following command.
 
     kea -f prop.py -a example/omninotes.apk -o output
 
-Check the bug report in file ``output/bug_report.html``
+Check the bug report in ``output/bug_report.html``. You can learn to read bug report in this
+tutorial: :ref:`bug_report_tutorial`.

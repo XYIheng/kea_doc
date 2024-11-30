@@ -31,12 +31,10 @@ Contents
    :caption: PART2: USER MANUEL
 
    part-keaUserManuel/introduction
-   part-keaUserManuel/example
-   part-keaUserManuel/tutorial
-   part-keaUserManuel/multipleProperty
-   part-keaUserManuel/stateful testing
-   part-keaUserManuel/options
    part-keaUserManuel/api
+   part-keaUserManuel/tutorial
+   part-keaUserManuel/options
+   part-keaUserManuel/stateful testing
 
 .. toctree::
    :caption: PART3: KEA FOR HarmonyOS

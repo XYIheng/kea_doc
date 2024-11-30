@@ -1,12 +1,16 @@
-User API 
-========
+.. _pdl_api:
+
+PDL API 
+=================
+
+PDL for Property Description Language. This is how kea interact with AUT(App under test).
 
 UI events
-..........
+-----------------
 
 .. note::
 
-   Note that currently, kea uses `uiautomator2 <https://github.com/openatx/uiautomator2>`_ to interact with the app.
+   Currently, kea uses `uiautomator2 <https://github.com/openatx/uiautomator2>`_ to interact with the app.
    You can find more information in `uiautomator2 <https://github.com/openatx/uiautomator2>`_.
    You can also use other tools to interact with the app, which can be easily implemented by modifying the `dsl.py`.
 
@@ -58,7 +62,7 @@ Here are some common operations:
 You can use selector to identify the UI object in the current window.
 
 Selector 
-.........
+---------------------
 
 you can also look at `uiautomator2 Selector <https://github.com/openatx/uiautomator2?tab=readme-ov-file#selector>`_.
 Selector is a handy mechanism to identify a specific UI object in the current window.  
@@ -72,3 +76,17 @@ Selector supports below parameters.
 *  `packageName`, `packageNameMatches`
 *  `resourceId`, `resourceIdMatches`
 *  `index`, `instance`  
+
+Here are some examples.
+
+.. code-block:: python
+
+   # Select the widget that has text "More Options" and click it.
+   d(text='More Options').click()
+
+   # Use multiple fields in one selector.
+   # Select the widget that has text "Clock" and className "android.widget.TextView" and click it.
+   d(text='Clock', className='android.widget.TextView').long_click()
+
+   # Select the widget that has resourceId "com.example/input_box" and set its text to "Hello world"
+   d(resourceId="com.example/input_box").set_text("Hello world")
