@@ -37,7 +37,7 @@ we will use `weditor <https://github.com/alibaba/web-editor>`_ to inspect androi
     pip install weditor==0.7.3
     python -m weditor
 
-The above command will isntall weditor on your PC and start weditor. It offers a host server (default: https://localhost:17310). You can access it in your web broswer.
+The above command will isntall weditor on your PC and start weditor. It offers a host server (default: http://localhost:17310). You can access it in your web browser.
 
 .. figure:: ../../images/weditor_home.png
     :align: center
