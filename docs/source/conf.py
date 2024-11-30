@@ -6,8 +6,8 @@ project = 'Kea'
 copyright = '2024, Yiheng Xiong, Ting Su, Jue Wang, Jingling Sun, Geguang Pu, Zhendong Su'
 author = 'Yiheng Xiong, Ting Su, Jue Wang, Jingling Sun, Geguang Pu, Zhendong Su'
 
-release = '1.0.0'
-version = '1.0.0'
+release = '1.0.1'
+version = '1.0'
 
 # -- General configuration
 
