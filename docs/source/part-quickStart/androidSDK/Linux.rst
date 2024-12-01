@@ -75,7 +75,42 @@ Set up Android SDK Environment on Linux
 Common issues for WSL
 --------------------------------------
 
-1. CPU acceleration status: This user doesn't have permissions to use KVM (/dev/kvm)，ERROR: x86 emulation currently requires hardware acceleration!
+**1. WSL dependencies**
+
+Please upgrade your windows to win11 and use WSL 2. This will can solve most of the WSL problem in win10 and WSL 1.
+
+**2. WSL PATH settings**
+
+By default, WSL will share the environmental variables in windows system. Sometimes this will lead to a wrong behavior.
+You may find out that the real executable you use is not the one you found out with ``which`` cmd. The root cause of this issue
+is: ``which`` command in WSL can only find out the executable in WSL's PATH. But if your have an executable (e.g. python3) configured
+in windows PATH and WSL PATH simultaneously. While the windows PATH set before WSL PATH (``PATH=$Windows_PATH:$WSL_PATH``). The real 
+executable you use is the one in Windows_PATH. But the one you found out with ``which`` is the one in WSL_PATH.
+
+To solve this problem, you can follow these suggestion:
+
+- Put your environment PATH first when setting PATH
+
+    Use ``PATH=New_PATH:$PATH`` instead of ``PATH=$PATH:New_PATH``. This is a good habit to prioritize your settings
+    and make sure it always work.
+
+- Disable the the share of environmental variables
+
+    .. code-block:: bash
+
+        # WSL bash
+        sudo vim /etc/wsl.conf
+
+        # add the following content
+        [interop]
+        appendWindowsPath = false
+
+        # reboot WSL in powershell 
+        wsl --shutdown
+
+**3. CPU acceleration issue**
+
+This user doesn't have permissions to use KVM (/dev/kvm), ERROR: x86 emulation currently requires hardware acceleration!
 
         .. image:: ../../../images/issues1.png
             :align: center
