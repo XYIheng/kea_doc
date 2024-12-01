@@ -6,16 +6,18 @@ https://kea-doc.readthedocs.io/en/latest/
 Developer Tutorial
 ======================================
 
-**Set up**
+**1.Set up**
 
 .. code-block:: bash
+
     git clone git@github.com:XYIheng/kea_doc.git
 
     cd kea_doc/docs
 
     pip install -r requirements.txt
 
-**Use vscode RST previewer**
+
+**2.Use vscode RST previewer**
 
 Add the following extension to vscode:
 
@@ -33,7 +35,7 @@ Install Esbonio server
 
 reboot vscode to apply the changes.
 
-**build html**
+**3. Build html**
 
 .. code-block:: bash
 
