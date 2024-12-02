@@ -40,6 +40,7 @@ Contents
    :caption: PART3: KEA FOR HarmonyOS
 
    part-keaForHarmonyOS/harmonyos_setup
+   part-keaForHarmonyOS/harmonyos_api
 
 .. toctree::
    :caption: PART4: APPENDIX

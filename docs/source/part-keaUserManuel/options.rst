@@ -56,7 +56,7 @@ The following commands are for customizing kea. You may find them helpful.
 
 ``-load_config``: load config from config.yml. The setting in config.yml will cover the commandline args.
 
-
+.. _yml_confg:
 
 YAML config
 --------------
