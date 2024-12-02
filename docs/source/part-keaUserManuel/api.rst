@@ -77,6 +77,10 @@ Selector supports below parameters.
 *  `resourceId`, `resourceIdMatches`
 *  `index`, `instance`  
 
+
+Examples
+---------------------------
+
 Here are some examples.
 
 .. code-block:: python

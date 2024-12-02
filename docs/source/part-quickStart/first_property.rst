@@ -108,7 +108,7 @@ widgets.
     Double click the widget in weditor. This will automatically generate the **click** action script for 
     you. You can take reference from it to write your own script.
 
-**Write the interaction scenerio (aka. what the function did).**
+**Write the interaction scenerio (aka. what does the function do).**
 
 We need to rotate the device. From neutural to landscape and back to neutural. The script can be written like.
 ``d.rotate('l')``
