@@ -14,9 +14,16 @@ Thus, it need additional data structure to support this.
 In Kea, you can use stateful testing when you write some properties that require stateful information.
 Just like following codes, when you want to manipulate files or folders on devices, such us create a file, delete a file or rename the file.
 
+.. note::
+
+    Kea allow you use stateful testing for both single property file and multiple property files.
+    If you only want to use stateful testing for single one, you can use ``_files = Bundle("files")``,
+    if you want to use it for multiple property files you can write like ``_files = PublicBundle("files")``,
+    this can make the object of ``Bundle`` shared in all the property files.
+
 .. code:: Python
 
-    _files = Kea.set_bundle("files")
+    _files = Kea.Bundle("files")
 
 The Bundle class contains the following functions:
 
@@ -86,11 +93,11 @@ Firstly, you can define a ``create_file_should_exist`` property. Just return to 
 
 .. code-block:: Python
 
-        @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists())
+        @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and
+                                   not d(textContains = "SDCARD").exists())
         @rule()
         def create_file_should_exist(self):
-            d(resourceId="com.amaze.filemanager:id/pathbar").click()
-            d(resourceId="com.amaze.filemanager:id/lin").child(index = 7).click()
+            d.swipe_ext("down", scale=0.9)
             d(description="Navigate up").click()
             d(resourceId="com.amaze.filemanager:id/design_menu_item_text", textContains="Internal Storage").click()
             d(resourceId="com.amaze.filemanager:id/sd_main_fab").click()
@@ -111,11 +118,12 @@ Secondly, you can define a ``change_filename_should_follow`` property. Just retu
 
 .. code-block:: Python
 
-        @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and self._files.get_all_data())
+        @precondition(lambda self: self._files.get_all_data() and
+                                    d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and
+                                    not d(resourceId="com.amaze.filemanager:id/action_mode_close_button").exists())
         @rule()
         def change_filename_should_follow(self):
-            d(resourceId="com.amaze.filemanager:id/pathbar").click()
-            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
+            d.swipe_ext("down", scale=0.9)
             d(description="Navigate up").click()
             d(resourceId="com.amaze.filemanager:id/design_menu_item_text", textContains="Internal Storage").click()
             file_name = self._files.get_random_data()
@@ -127,12 +135,12 @@ Secondly, you can define a ``change_filename_should_follow`` property. Just retu
             d.send_keys(new_name, clear=True)
             d(resourceId="com.amaze.filemanager:id/md_buttonDefaultPositive").click()
             self._files.update(file_name, new_name)
-            d(resourceId="com.amaze.filemanager:id/pathbar").click()
-            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
+            d.swipe_ext("down", scale=0.9)
+            d(resourceId="com.amaze.filemanager:id/home").click()
             d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=new_name)
             assert d(text=new_name).exists()
-            d(resourceId="com.amaze.filemanager:id/pathbar").click()
-            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
+            d.swipe_ext("down", scale=0.9)
+            d(resourceId="com.amaze.filemanager:id/home").click()
             d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=file_name)
             assert not d(text=file_name).exists()
 
@@ -145,28 +153,24 @@ Thirdly, you can define a ``del_file_should_disappear`` property. Just return to
 
 .. code-block:: Python
 
-        @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and self._files.get_all_data())
-        @rule()
-        def del_file_should_disappear(self):
-            d(resourceId="com.amaze.filemanager:id/pathbar").click()
-            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
-            d(description="Navigate up").click()
-            d(resourceId="com.amaze.filemanager:id/design_menu_item_text", textContains="Internal Storage").click()
-            file_name = self._files.get_random_data()
-            d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text = file_name)
-            selected_file = d(resourceId="com.amaze.filemanager:id/firstline", text = file_name)
-            selected_file_name = selected_file.get_text()
-            selected_file.right(resourceId="com.amaze.filemanager:id/properties").click()
-            d(text="Delete").click()
-            d(resourceId="com.amaze.filemanager:id/md_buttonDefaultPositive").click()
-            self._files.delete(selected_file_name)
-            d(resourceId="com.amaze.filemanager:id/pathbar").click()
-            d(resourceId="com.amaze.filemanager:id/lin").child(index=7).click()
-            d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=file_name)
-            assert not d(text=selected_file_name).exists()
+            @precondition(lambda self: self._files.get_all_data() and
+                                       d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and
+                                       not d(resourceId="com.amaze.filemanager:id/action_mode_close_button").exists())
+            @rule()
+            def del_file_should_disappear(self):
+                d.swipe_ext("down", scale=0.9)
+                d(description="Navigate up").click()
+                d(resourceId="com.amaze.filemanager:id/design_menu_item_text", textContains="Internal Storage").click()
+                file_name = self._files.get_random_data()
+                d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text = file_name)
+                selected_file = d(resourceId="com.amaze.filemanager:id/firstline", text = file_name)
+                selected_file_name = selected_file.get_text()
+                selected_file.right(resourceId="com.amaze.filemanager:id/properties").click()
+                d(text="Delete").click()
+                d(resourceId="com.amaze.filemanager:id/md_buttonDefaultPositive").click()
+                self._files.delete(selected_file_name)
+                d.swipe_ext("down", scale=0.9)
+                d(resourceId="com.amaze.filemanager:id/home").click()
+                d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=file_name)
+                assert not d(text=selected_file_name).exists()
 
-.. note::
-
-    The  above method can use for both single property file and multiple property files.
-    If you only want to use stateful testing for single one, you can use ``_files = Bundle("files")`` directly
-    to instantiate Bundle instead of using class method of Kea ``_files = Kea.set_bundle("files")``.
