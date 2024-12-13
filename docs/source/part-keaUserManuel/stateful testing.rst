@@ -14,13 +14,6 @@ Thus, it need additional data structure to support this.
 In Kea, you can use stateful testing when you write some properties that require stateful information.
 Just like following codes, when you want to manipulate files or folders on devices, such us create a file, delete a file or rename the file.
 
-.. note::
-
-    Kea allow you use stateful testing for both single property file and multiple property files.
-    If you only want to use stateful testing for single one, you can use ``_files = Bundle("files")``,
-    if you want to use it for multiple property files you can write like ``_files = PublicBundle("files")``,
-    this can make the object of ``Bundle`` shared in all the property files.
-
 .. code:: Python
 
     _files = Kea.Bundle("files")
