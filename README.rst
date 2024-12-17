@@ -17,7 +17,7 @@ Developer Tutorial
     pip install -r requirements.txt
 
 
-**2.Use vscode RST previewer**
+**(optional) 2.Use vscode RST previewer**
 
 Add the following extension to vscode:
 
