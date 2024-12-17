@@ -11,8 +11,6 @@ UI events
 .. note::
 
    Currently, kea uses `uiautomator2 <https://github.com/openatx/uiautomator2>`_ to interact with the app.
-   You can find more information in `uiautomator2 <https://github.com/openatx/uiautomator2>`_.
-   You can also use other tools to interact with the app, which can be easily implemented by modifying the `dsl.py`.
 
 For example, to send the click event to the app, you can use the following code:
 
@@ -21,7 +19,7 @@ For example, to send the click event to the app, you can use the following code:
    d(resourceId="player_playback_button").click()
 
 
-``d`` is the object of the uiautomator2.
+``d`` is the driver of the uiautomator2.
 ``resourceId`` sets the resource id of the element.
 ``click()`` sends the click event to the element.
 
@@ -68,14 +66,14 @@ you can also look at `uiautomator2 Selector <https://github.com/openatx/uiautoma
 Selector is a handy mechanism to identify a specific UI object in the current window.  
 Selector supports below parameters.
 
-*  `text`, `textContains`, `textMatches`, `textStartsWith`
-*  `className`, `classNameMatches`
-*  `description`, `descriptionContains`, `descriptionMatches`, `descriptionStartsWith`
-*  `checkable`, `checked`, `clickable`, `longClickable`
-*  `scrollable`, `enabled`,`focusable`, `focused`, `selected`
-*  `packageName`, `packageNameMatches`
-*  `resourceId`, `resourceIdMatches`
-*  `index`, `instance`  
+*  ``text``, ``textContains``, ``textMatches``, ``textStartsWith``
+*  ``className``, ``classNameMatches``
+*  ``description``, ``descriptionContains``, ``descriptionMatches``, ``descriptionStartsWith``
+*  ``checkable``, ``checked``, ``clickable``, ``longClickable``
+*  ``scrollable``, ``enabled``, ``focusable``, ``focused``, ``selected``
+*  ``packageName``, ``packageNameMatches``
+*  ``resourceId``, ``resourceIdMatches``
+*  ``index``, ``instance``
 
 
 Examples

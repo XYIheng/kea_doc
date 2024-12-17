@@ -17,6 +17,13 @@ You can use the browser (Google Chrome, Firefox, etc.) to open ``bug_report.html
 The line at the top of the report record the screenshot of every UI states during the testing process,
 which can help you identify and reproduce the bug.
 Under each screenshot, you can see the event index and the event type (e.g., click, long click) that executed on the UI state.
-The table below shows a property violation list, it contains ``precondition link``, ``interaction link`` and ``postcondition link`` of
+
+``Time Consumption Statistics`` module records the time consumption to trigger the first bug,
+to satisfy the precondition, and the total testing time.
+
+``Statisfaction Quantity Statistics`` module records the total count of triggered bugs and satisfied precondition
+kea get until now, and the number of events is also showed here.
+
+The table below shows a property violation list, it contains ``Precondition Page``, ``Interaction Page`` and ``Postcondition Page`` of
 every property violation situation. Click the link will jump to the corresponding screenshots,
 to help you understand what happened at that moment.
