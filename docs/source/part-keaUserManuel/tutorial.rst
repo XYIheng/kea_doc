@@ -201,6 +201,7 @@ Specify property from app function
 This example will show how to get a property from the app `Amaze <https://github.com/TeamAmaze/AmazeFileManager>`_
 
 `Amaze <https://github.com/TeamAmaze/AmazeFileManager>`_ is an app for file management.
+It provides a simple and intuitive user interface that allows users to easily browse, manage, and manipulate files.
 
 In the Amaze, you can create a folder and after your creation the new folder should exist. So you may can define a property
 ``create_folder_should_exist``. Just means when you want to create a folder, it should works.
