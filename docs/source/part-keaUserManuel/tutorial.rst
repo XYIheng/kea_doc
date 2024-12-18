@@ -113,33 +113,29 @@ To do this, you can use the following code:
 
     @mainPath()
     def test_main(self):
-        d(resourceId="it.feio.android.omninotes:id/fab_expand_menu_button").long_click()
-        d(resourceId="it.feio.android.omninotes:id/detail_content").click()
-        d(resourceId="it.feio.android.omninotes:id/detail_content").set_text("read a book #Tag1")
+        d(resourceId="it.feio.android.omninotes.alpha:id/fab_expand_menu_button").long_click()
+        d(resourceId="it.feio.android.omninotes.alpha:id/detail_content").click()
+        d(resourceId="it.feio.android.omninotes.alpha:id/detail_content").set_text("read a book #Tag1")
         d(description="drawer open").click()
-        d(resourceId="it.feio.android.omninotes:id/note_content").click()
-        d(resourceId="it.feio.android.omninotes:id/menu_tag").click()
-        d(resourceId="it.feio.android.omninotes:id/md_control").click()
-        d(resourceId="it.feio.android.omninotes:id/md_buttonDefaultPositive").click()
+        d(resourceId="it.feio.android.omninotes.alpha:id/note_content").click()
 
 The code above can guide Kea to create a note with the content of "read a book #Tag1" in the omninotes.
-And then removes the tag “Tag1” of this note.
 
 .. note::
 
     In the part of the definition of the main path, you can only use UI operation commands to complete the definition;
-    The function cannot contain other Python statements such as for loops.
+    The function doesn't support for containing other Python statements such as for loops.
     But we believe this approach is sufficient to implement the functionality of the main path.
 
 Here, you have already learned how to write a property in Kea.
 
-To test this property, you need to put the property in a class, which inherits from the ``Kea`` class.
+To test this property, you need to put the property in a class, which inherits from the ``KeaTest`` class.
 
 .. code:: Python
     
     from kea.main import *
 
-    class Test(Kea):
+    class Test(KeaTest):
         
 
         @initialize()
@@ -152,14 +148,11 @@ To test this property, you need to put the property in a class, which inherits f
 
         @mainPath()
         def test_main(self):
-            d(resourceId="it.feio.android.omninotes:id/fab_expand_menu_button").long_click()
-            d(resourceId="it.feio.android.omninotes:id/detail_content").click()
-            d(resourceId="it.feio.android.omninotes:id/detail_content").set_text("read a book #Tag1")
+            d(resourceId="it.feio.android.omninotes.alpha:id/fab_expand_menu_button").long_click()
+            d(resourceId="it.feio.android.omninotes.alpha:id/detail_content").click()
+            d(resourceId="it.feio.android.omninotes.alpha:id/detail_content").set_text("read a book #Tag1")
             d(description="drawer open").click()
-            d(resourceId="it.feio.android.omninotes:id/note_content").click()
-            d(resourceId="it.feio.android.omninotes:id/menu_tag").click()
-            d(resourceId="it.feio.android.omninotes:id/md_control").click()
-            d(resourceId="it.feio.android.omninotes:id/md_buttonDefaultPositive").click()
+            d(resourceId="it.feio.android.omninotes.alpha:id/note_content").click()
 
         @precondition(lambda self: d(resourceId="it.feio.android.omninotes:id/menu_tag").exists() and
                     "#" in d(resourceId="it.feio.android.omninotes:id/detail_content").info["text"]
@@ -205,84 +198,33 @@ You can see the bug reports:
 
 Specify property from app function
 ---------------------------------------------
-This example will show how to get a property from the app `OmniNotes <https://github.com/federicoiosue/Omni-Notes/>`_
+This example will show how to get a property from the app `Amaze <https://github.com/TeamAmaze/AmazeFileManager>`_
 
-`OmniNotes <https://github.com/federicoiosue/Omni-Notes/>`_ is an app for taking and managing notes.
+`Amaze <https://github.com/TeamAmaze/AmazeFileManager>`_ is an app for file management.
 
-In the settings of Omninotes, there is a function that can set or remove a lock for a note. So you may can define a property
-``remove_password_in_setting_should_effect``. Just means when you remove a lock in the settings, the note must unlocked.
+In the Amaze, you can create a folder and after your creation the new folder should exist. So you may can define a property
+``create_folder_should_exist``. Just means when you want to create a folder, it should works.
 
-To do this, first you should use ``@initializer()`` to specify a function and write the corresponding UI events to pass the welcome page:
-
-.. code:: Python
-
-    @initializer()
-    def set_up(self):
-        d.set_fastinput_ime(True)
-        d(resourceId="it.feio.android.omninotes:id/next").click()
-        d(resourceId="it.feio.android.omninotes:id/next").click()
-        d(resourceId="it.feio.android.omninotes:id/next").click()
-        d(resourceId="it.feio.android.omninotes:id/next").click()
-        d(resourceId="it.feio.android.omninotes:id/next").click()
-        d(resourceId="it.feio.android.omninotes:id/done").click()
-        if d(text="OK").exists():
-            d(text="OK").click()
-
-Then you can define a function as the main path guide the app to lock a note and jump to the remove lock interface, just like this:
+You also need to use ``@rule()`` and ``@precondition()`` to define the property.
+Here, the precondition *P* is the creating folder button is on the current interface, and the current interface allow to ctrate folder.
+And then *I* is executing some events to create the folder.
+Finally, *Q* is to check whether the new folder is created successfully.
 
 .. code:: Python
 
-    @mainPath()
-    def remove_password_in_setting_should_effect_mainpath(self):
-        d(resourceId="it.feio.android.omninotes:id/fab_expand_menu_button").long_click()
-        d(resourceId="it.feio.android.omninotes:id/detail_content").set_text("Hello world")
-        d(description="More options").click()
-        d(text="Lock").click()
-        d(resourceId="it.feio.android.omninotes:id/password").set_text("1")
-        d(resourceId="it.feio.android.omninotes:id/password_check").set_text("1")
-        d(resourceId="it.feio.android.omninotes:id/question").set_text("1")
-        d(resourceId="it.feio.android.omninotes:id/answer").set_text("1")
-        d(resourceId="it.feio.android.omninotes:id/answer_check").set_text("1")
-        d(scrollable=True).scroll.to(text="OK")
-        d(text="OK").click()
-        d.press("back")
-        d(description="drawer open").click()
-        d(resourceId="it.feio.android.omninotes:id/settings").click()
-        d(resourceId="android:id/title", text="Data").click()
-        d(resourceId="android:id/title", text="Password").click()
-        d(resourceId="it.feio.android.omninotes:id/password_remove").click()
-
-The most important thing is define the property, you should use ``@rule()`` and ``@precondition()`` to finish it. Here, the precondition
-*P* is use two UI components to check whether the app is in the remove lock interface. And then execute some events to remove the lock.
-Finally, check whether the locked note becomes unlocked.
-
-.. code:: Python
-
-    @precondition(lambda self: d(text="Insert password").exists() and d(text="PASSWORD FORGOTTEN").exists())
+    @precondition(lambda self: d(resourceId="com.amaze.filemanager:id/sd_main_fab").exists() and
+                               not d(textContains = "SDCARD").exists())
     @rule()
-    def remove_password_in_setting_should_effect(self):
-        d(resourceId="it.feio.android.omninotes:id/customViewFrame").click()
-        d.send_keys("1", clear=True)
-        d(resourceId="it.feio.android.omninotes:id/buttonDefaultPositive").click()
-        if d(text="Insert password").exists():
-            print("wrong password")
-            return
-        d(resourceId="it.feio.android.omninotes:id/buttonDefaultPositive").click()
-        d.press("back")
-        d.press("back")
-        d.press("back")
-        d.press("back")
-        assert not d(resourceId="it.feio.android.omninotes:id/lockedIcon").exists()
+    def create_folder_should_exist(self):
+        d(resourceId="com.amaze.filemanager:id/sd_main_fab").click()
+        d(resourceId="com.amaze.filemanager:id/sd_label", text="Folder").click()
+        file_name = self._files.get_random_value()
+        d.send_keys(file_name, clear=True)
+        d(resourceId="com.amaze.filemanager:id/md_buttonDefaultPositive").click()
+        d(scrollable=True).scroll.to(resourceId="com.amaze.filemanager:id/firstline", text=file_name)
+        assert d(text=file_name).exists()
 
-We put this file advanced_example_property.py in the ``example`` directory.
-You can test the property by running the following command:
-
-.. code:: console
-
-    kea -f example/advanced_example_property.py -a example/omninotes-5.5.3.apk
-
-
-That's it! You have learned how to write a property and test it with Kea.
+That's it! You have learned how to write a property from an app function.
 
 .. note::
 
